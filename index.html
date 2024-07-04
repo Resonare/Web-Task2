@@ -1,54 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Калькулятор</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <h1>Калькулятор комплексных чисел</h1>
-    <form id="complex-form">
-        <fieldset>
-            <legend>В какой форме задавать комплексное число:</legend>
-            <input type="radio" id="algebraic" name="form" value="algebraic" checked>
-            <label for="algebraic">Алгебраическая (a + bi)</label>
-            <input type="radio" id="trigonometric" name="form" value="trigonometric">
-            <label for="trigonometric">Тригонометрической (r(cos(θ) + i sin(θ)))</label>
-        </fieldset>
-        <button type="button" id="show-form">Показать</button>
-
-        <div id="algebraic-form">
-            <label for="real-part">Действительная часть числа (a):</label>
-            <input type="text" id="real-part">
-            <label for="imaginary-part">Мнимая часть числа (b):</label>
-            <input type="text" id="imaginary-part">
-        </div>
-
-        <div id="trigonometric-form" class="hidden">
-            <label for="modulus">Модуль (r):</label>
-            <input type="text" id="modulus">
-            <label for="argument">Аргумент (θ в радианах):</label>
-            <input type="text" id="argument">
-        </div>
-
-        <fieldset>
-            <legend>Выберите операции:</legend>
-            <input type="checkbox" id="real" name="operation" value="real">
-            <label for="real">Действительная часть числа</label>
-            <input type="checkbox" id="imaginary" name="operation" value="imaginary">
-            <label for="imaginary">Мнимая часть числа</label>
-            <input type="checkbox" id="modulus-op" name="operation" value="modulus">
-            <label for="modulus-op">Модуль</label>
-            <input type="checkbox" id="argument-op" name="operation" value="argument">
-            <label for="argument-op">Аргумент</label>
-        </fieldset>
-        <button type="button" id="calculate">Посчитать</button>
-        <button type="button" id="clear">Очистить</button>
-    </form>
-
-    <div id="results"></div>
-
-    <script src="script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>

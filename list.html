@@ -1,0 +1,762 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <a href="index.html"><font>Кинопоиск</font></a>
+    <a href=""><font>Мои просмотренные</font></a>
+
+    <hr size="20" color="#202020">
+
+    <details>
+        <summary>График</summary>
+        <form>
+            <table>
+                <tr>
+                    <th>Значение по оси OX</th>
+                    <th>Результат</th>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input  type="radio"  name="target" value="year"> Год
+                    </td>
+                    <td>
+                        <input  type="checkbox"  name="result" value="max-rating"> Максимальный рейтинг
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input  type="radio"  name="target" value="genre"> Жанр
+                    </td>
+                    <td>
+                        <input  type="checkbox"  name="result" value="min-rating"> Минимальный рейтинг
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input  type="radio"  name="target" value="director"> Режиссёр
+                    </td>
+                    <td>
+                        <input  type="checkbox"  name="result" value="quantity"> Количество фильмов
+                    </td>
+                </tr>
+            </table>
+
+            <input type="submit" value="Построить">
+        </form>
+    </details>
+
+    <details>
+        <summary>Фильтр</summary>
+        <form>
+            <p>
+                <label for="title">Название: </label>
+                <input type="text" name="title">
+            </p>
+            <p>
+                <label for="year">Год: </label>
+                <input type="number" name="year" min="1900" max="2023">
+            </p>
+            <p>
+                <label for="genre">Жанр: </label>
+                <input type="text" name="genre">
+            </p>
+            <p>
+                <label for="director">Режиссёр: </label>
+                <input type="text" name="director">
+            </p>
+            <p>
+                <label for="time">Время: </label>
+                <input type="text" name="time">
+            </p>
+            <p>
+                <label for="country">Страна: </label>
+                <input type="text" name="country">
+            </p>
+            <p>
+                <label for="rating">Оценка: </label>
+                <input type="number" name="rating" min="1" max="10">
+            </p>
+
+            <p>
+                <input type="submit" value="Найти">
+            </p>
+        </form>
+    </details>
+
+    <details>
+        <summary>Сортировка</summary>
+        <form>
+            <p>
+                Первый уровень:
+                <select name="sort-first">
+                    <option value="no">Нет</option>
+                    <option value="title">Название</option>
+                    <option value="year">Год</option>
+                    <option value="genre">Жанр</option>
+                    <option value="director">Режиссёр</option>
+                    <option value="country">Страна</option>
+                    <option value="time">Время</option>
+                    <option value="rating">Оценка</option>
+                </select>
+                по убыванию?
+                <input type="checkbox" name="reduction-first">
+            </p>
+
+            <p>
+                Второй уровень:
+                <select name="sort-second">
+                    <option value="no">Нет</option>
+                    <option value="title">Название</option>
+                    <option value="year">Год</option>
+                    <option value="genre">Жанр</option>
+                    <option value="director">Режиссёр</option>
+                    <option value="country">Страна</option>
+                    <option value="time">Время</option>
+                    <option value="rating">Оценка</option>
+                </select>
+                по убыванию?
+                <input type="checkbox" name="reduction-second">
+            </p>
+
+            <p>
+                Третий уровень:
+                <select name="sort-third">
+                    <option value="no">Нет</option>
+                    <option value="title">Название</option>
+                    <option value="year">Год</option>
+                    <option value="genre">Жанр</option>
+                    <option value="director">Режиссёр</option>
+                    <option value="country">Страна</option>
+                    <option value="time">Время</option>
+                    <option value="rating">Оценка</option>
+                </select>
+                по убыванию?
+                <input type="checkbox" name="reduction-third">
+            </p>
+
+            <p>
+                <input type="submit" value="Сортировать">
+            </p>
+        </form>
+    </details>
+
+    <br>
+
+    <table border="2" cellspacing="0" bordercolor=#808080>
+        <tr align="center">
+            <th>Название</th>
+            <th>Год</th>
+            <th>Жанр</th>
+            <th>Режиссёр</th>
+            <th>Время</th>
+            <th>Страна</th>
+            <th>Оценка</th>
+        </tr>
+
+        <tr>
+            <td>Воспоминания об убийстве</td>
+            <td>2003</td>
+            <td>детектив</td>
+            <td>Пон Джун-хо</td>
+            <td>131</td>
+            <td>Южная Корея</td>
+            <td>
+                <font color="#3BB33B">9</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Оппенгеймер</td>
+            <td>2023</td>
+            <td>биография</td>
+            <td>Кристофер Нолан</td>
+            <td>180</td>
+            <td>США</td>
+            <td>
+                <font color="#3BB33B">10</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Список Шиндлера</td>
+            <td>1993</td>
+            <td>драма</td>
+            <td>Стивен Спилберг</td>
+            <td>195</td>
+            <td>США</td>
+            <td>
+                <font color="#3BB33B">9</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Интерстеллар</td>
+            <td>2014</td>
+            <td>фантастика</td>
+            <td>Кристофер Нолан</td>
+            <td>169</td>
+            <td>США</td>
+            <td>
+                <font color="#3BB33B">10</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Однажды в… Голливуде</td>
+            <td>2019</td>
+            <td>драма</td>
+            <td>Квентин Тарантино</td>
+            <td>161</td>
+            <td>США</td>
+            <td>
+                <font color="#3BB33B">8</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Дюна</td>
+            <td>2021</td>
+            <td>фантастика</td>
+            <td>Дени Вильнёв</td>
+            <td>155</td>
+            <td>США</td>
+            <td>
+                <font color="#3BB33B">10</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Луна 2112</td>
+            <td>2009</td>
+            <td>фантастика</td>
+            <td>Дункан Джонс</td>
+            <td>97</td>
+            <td>Великобритания</td>
+            <td>
+                <font color="#3BB33B">7</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Одержимость</td>
+            <td>2013</td>
+            <td>драма</td>
+            <td>Дэмьен Шазелл</td>
+            <td>106</td>
+            <td>США</td>
+            <td>
+                <font color="#3BB33B">8</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Грязь</td>
+            <td>2013</td>
+            <td>драма</td>
+            <td>Джон Бейрд</td>
+            <td>93</td>
+            <td>Великобритания</td>
+            <td>
+                <font color="#3BB33B">8</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Гнев человеческий</td>
+            <td>2021</td>
+            <td>боевик</td>
+            <td>Гай Ричи</td>
+            <td>119</td>
+            <td>Великобритания</td>
+            <td>
+                <font color="#969696">6</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Фотоувеличение</td>
+            <td>1966</td>
+            <td>триллер</td>
+            <td>Микеланджело Антониони</td>
+            <td>111</td>
+            <td>Великобритания</td>
+            <td>
+                <font color="#3BB33B">8</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Прибытие</td>
+            <td>2016</td>
+            <td>фантастика</td>
+            <td>Дени Вильнёв</td>
+            <td>116</td>
+            <td>США</td>
+            <td>
+                <font color="#3BB33B">8</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Схватка</td>
+            <td>1995</td>
+            <td>боевик</td>
+            <td>Майкл Манн</td>
+            <td>171</td>
+            <td>США</td>
+            <td>
+                <font color="#3BB33B">8</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Дивергент</td>
+            <td>2014</td>
+            <td>фантастика</td>
+            <td>Нил Бёргер</td>
+            <td>134</td>
+            <td>США</td>
+            <td>
+                <font color="#e00000">4</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Милые кости</td>
+            <td>2009</td>
+            <td>драма</td>
+            <td>Питер Джексон</td>
+            <td>135</td>
+            <td>США</td>
+            <td>
+                <font color="#969696">6</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Война миров</td>
+            <td>2005</td>
+            <td>фантастика</td>
+            <td>Стивен Спилберг</td>
+            <td>116</td>
+            <td>США</td>
+            <td>
+                <font color="#3BB33B">8</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Черное зеркало. Бандерснэтч</td>
+            <td>2018</td>
+            <td>фантастика</td>
+            <td>Дэвид Слэйд</td>
+            <td>90</td>
+            <td>Великобритания</td>
+            <td>
+                <font color="#3BB33B">8</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Достучаться до небес</td>
+            <td>1997</td>
+            <td>драма</td>
+            <td>Томас Ян</td>
+            <td>87</td>
+            <td>Германия</td>
+            <td>
+                <font color="#3BB33B">9</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Потец</td>
+            <td>1992</td>
+            <td>мультфильм</td>
+            <td>Александр Федулов</td>
+            <td>17</td>
+            <td>Россия</td>
+            <td>
+                <font color="#3BB33B">9</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Манускрипт ниндзя</td>
+            <td>1993</td>
+            <td>аниме</td>
+            <td>Ёсиаки Кавадзири</td>
+            <td>91</td>
+            <td>Япония</td>
+            <td>
+                <font color="#3BB33B">7</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Заражение</td>
+            <td>2011</td>
+            <td>драма</td>
+            <td>Стивен Содерберг</td>
+            <td>106</td>
+            <td>США</td>
+            <td>
+                <font color="#3BB33B">8</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Никто</td>
+            <td>2021</td>
+            <td>боевик</td>
+            <td>Илья Найшуллер</td>
+            <td>92</td>
+            <td>США</td>
+            <td>
+                <font color="#969696">6</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Любимый во Франксе</td>
+            <td>2018</td>
+            <td>аниме</td>
+            <td>Тосифуми Акаи</td>
+            <td>24</td>
+            <td>Япония</td>
+            <td>
+                <font color="#e00000">4</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Боец</td>
+            <td>2010</td>
+            <td>драма</td>
+            <td>Дэвид Расселл</td>
+            <td>114</td>
+            <td>США</td>
+            <td>
+                <font color="#3BB33B">9</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Чебурашка</td>
+            <td>2022</td>
+            <td>семейный</td>
+            <td>Дмитрий Дьяченко</td>
+            <td>113</td>
+            <td>Россия</td>
+            <td>
+                <font color="#e00000">4</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Бэтмен</td>
+            <td>2022</td>
+            <td>детектив</td>
+            <td>Мэтт Ривз</td>
+            <td>176</td>
+            <td>США</td>
+            <td>
+                <font color="#969696">6</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Дом Дракона</td>
+            <td>2022</td>
+            <td>фэнтези</td>
+            <td>Клер Килнер</td>
+            <td>60</td>
+            <td>США</td>
+            <td>
+                <font color="#3BB33B">8</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Моб Психо 100</td>
+            <td>2016</td>
+            <td>аниме</td>
+            <td>Юдзуру Татикава</td>
+            <td>24</td>
+            <td>Япония</td>
+            <td>
+                <font color="#3BB33B">7</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Я видел дьявола</td>
+            <td>2010</td>
+            <td>триллер</td>
+            <td>Ким Джи-ун</td>
+            <td>144</td>
+            <td>Южная Корея</td>
+            <td>
+                <font color="#969696">6</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Пленницы</td>
+            <td>2013</td>
+            <td>триллер</td>
+            <td>Дени Вильнёв</td>
+            <td>153</td>
+            <td>США</td>
+            <td>
+                <font color="#3BB33B">8</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Хорошее время</td>
+            <td>2017</td>
+            <td>триллер</td>
+            <td>Бенни Сэфди</td>
+            <td>102</td>
+            <td>США</td>
+            <td>
+                <font color="#3BB33B">8</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Россия 1985-1999: TraumaZone</td>
+            <td>2022</td>
+            <td>документальный</td>
+            <td>Адам Кертис</td>
+            <td>60</td>
+            <td>Великобритания</td>
+            <td>
+                <font color="#3BB33B">10</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Мастера меча онлайн</td>
+            <td>2012</td>
+            <td>аниме</td>
+            <td>Томохико Ито</td>
+            <td>25</td>
+            <td>Япония</td>
+            <td>
+                <font color="#e00000">4</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Тайная жизнь домашних животных</td>
+            <td>2016</td>
+            <td>мультфильм</td>
+            <td>Крис Рено</td>
+            <td>87</td>
+            <td>США</td>
+            <td>
+                <font color="#969696">5</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Воронины</td>
+            <td>2009</td>
+            <td>комедия</td>
+            <td>Александр Жигалкин</td>
+            <td>24</td>
+            <td>Россия</td>
+            <td>
+                <font color="#e00000">4</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Рагнарёк</td>
+            <td>2020</td>
+            <td>фэнтези</td>
+            <td>Могенс Кристиансен</td>
+            <td>45</td>
+            <td>Дания</td>
+            <td>
+                <font color="#969696">6</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Пинг-понг</td>
+            <td>2014</td>
+            <td>аниме</td>
+            <td>Масааки Юаса</td>
+            <td>25</td>
+            <td>Япония</td>
+            <td>
+                <font color="#3BB33B">9</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Капитан Волконогов бежал</td>
+            <td>2021</td>
+            <td>триллер</td>
+            <td>Наташа Меркулова</td>
+            <td>126</td>
+            <td>Россия</td>
+            <td>
+                <font color="#3BB33B">10</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Джанго освобожденный</td>
+            <td>2012</td>
+            <td>вестерн</td>
+            <td>Квентин Тарантино</td>
+            <td>165</td>
+            <td>США</td>
+            <td>
+                <font color="#3BB33B">8</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Прислуга</td>
+            <td>2011</td>
+            <td>драма</td>
+            <td>Тейт Тейлор</td>
+            <td>146</td>
+            <td>США</td>
+            <td>
+                <font color="#969696">6</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Тьма</td>
+            <td>2017</td>
+            <td>фантастика</td>
+            <td>Баран бо Одар</td>
+            <td>60</td>
+            <td>Германия</td>
+            <td>
+                <font color="#3BB33B">10</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Преследователь</td>
+            <td>2008</td>
+            <td>триллер</td>
+            <td>На Хон-джин</td>
+            <td>120</td>
+            <td>Южная Корея</td>
+            <td>
+                <font color="#3BB33B">10</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Пылающий</td>
+            <td>2018</td>
+            <td>детектив</td>
+            <td>Ли Чхан-дон</td>
+            <td>148</td>
+            <td>Южная Корея</td>
+            <td>
+                <font color="#3BB33B">10</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Криминальное чтиво</td>
+            <td>1994</td>
+            <td>криминал</td>
+            <td>Квентин Тарантино</td>
+            <td>154</td>
+            <td>США</td>
+            <td>
+                <font color="#3BB33B">8</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Могучие рейнджеры</td>
+            <td>2017</td>
+            <td>фантастика</td>
+            <td>Дин Израэлайт</td>
+            <td>124</td>
+            <td>США</td>
+            <td>
+                <font color="#e00000">3</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Экипаж</td>
+            <td>2016</td>
+            <td>драма</td>
+            <td>Николай Лебедев</td>
+            <td>138</td>
+            <td>Россия</td>
+            <td>
+                <font color="#969696">6</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Отряд самоубийц</td>
+            <td>2016</td>
+            <td>боевик</td>
+            <td>Дэвид Эйр</td>
+            <td>118</td>
+            <td>США</td>
+            <td>
+                <font color="#969696">5</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Брат 2</td>
+            <td>2000</td>
+            <td>боевик</td>
+            <td>Алексей Балабанов</td>
+            <td>127</td>
+            <td>Россия</td>
+            <td>
+                <font color="#969696">6</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Шан-Чи и легенда десяти колец</td>
+            <td>2021</td>
+            <td>фэнтези</td>
+            <td>Дестин Дэниел Креттон</td>
+            <td>132</td>
+            <td>США</td>
+            <td>
+                <font color="#969696">5</font>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Джокер</td>
+            <td>2019</td>
+            <td>драма</td>
+            <td>Тодд Филлипс</td>
+            <td>122</td>
+            <td>США</td>
+            <td>
+                <font color="#3BB33B">8</font>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -7,6 +7,30 @@ const selectedOptions = {
   third: null,
 };
 
+document
+  .querySelector("select[name='sort-first']")
+  .addEventListener("change", (e) => {
+    if (e.target.value == "no") {
+      document.querySelector("select[name='sort-second']").disabled = true;
+      document.querySelector("select[name='sort-second']").value = "no";
+      document.querySelector("select[name='sort-third']").disabled = true;
+      document.querySelector("select[name='sort-third']").value = "no";
+    } else {
+      document.querySelector("select[name='sort-second']").disabled = false;
+    }
+  });
+
+document
+  .querySelector("select[name='sort-second']")
+  .addEventListener("change", (e) => {
+    if (e.target.value == "no") {
+      document.querySelector("select[name='sort-third']").disabled = true;
+      document.querySelector("select[name='sort-third']").value = "no";
+    } else {
+      document.querySelector("select[name='sort-third']").disabled = false;
+    }
+  });
+
 for (const key in selectedOptions) {
   if (Object.hasOwnProperty.call(selectedOptions, key)) {
     sortForm

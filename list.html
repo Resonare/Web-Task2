@@ -55,30 +55,37 @@
         <p>
           <label for="title">Название: </label>
           <input type="text" name="title" />
+          <input type="text" name="title-to" hidden />
         </p>
         <p>
           <label for="year">Год: </label>
           <input type="number" name="year" min="1900" max="2023" />
+          <input type="number" name="year-to" min="1900" max="2023" />
         </p>
         <p>
           <label for="genre">Жанр: </label>
           <input type="text" name="genre" />
+          <input type="text" name="genre-to" hidden />
         </p>
         <p>
           <label for="director">Режиссёр: </label>
           <input type="text" name="director" />
+          <input type="text" name="director-to" hidden />
         </p>
         <p>
           <label for="time">Время: </label>
           <input type="text" name="time" />
+          <input type="text" name="time-to" />
         </p>
         <p>
           <label for="country">Страна: </label>
           <input type="text" name="country" />
+          <input type="text" name="country-to" hidden />
         </p>
         <p>
           <label for="rating">Оценка: </label>
           <input type="number" name="rating" min="1" max="10" />
+          <input type="number" name="rating-to" min="1" max="10" />
         </p>
 
         <p>
@@ -108,7 +115,7 @@
 
         <p>
           Второй уровень:
-          <select name="sort-second">
+          <select name="sort-second" disabled="disabled">
             <option value="no">Нет</option>
             <option value="title">Название</option>
             <option value="year">Год</option>
@@ -124,7 +131,7 @@
 
         <p>
           Третий уровень:
-          <select name="sort-third">
+          <select name="sort-third" disabled="disabled">
             <option value="no">Нет</option>
             <option value="title">Название</option>
             <option value="year">Год</option>

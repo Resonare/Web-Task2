@@ -1,4 +1,4 @@
-const graphForm = document.querySelector("#graphForm");
+const graphForm = d3.select("#graphForm");
 const svg = d3.select("#graphSvg");
 
 const WIDTH = 1000;
@@ -8,16 +8,12 @@ const MARGIN_X = 50;
 const MARGIN_Y = 40;
 
 const getValues = () => {
-  let targetField = +graphForm.querySelector('input[name="target"]:checked')
-    .value;
-  let searching = graphForm.querySelector('input[name="result"]:checked').value;
-  let currentTableRows = Array.from(tableBody.querySelectorAll("tr"));
+  let targetField = +d3.select('input[name="target"]:checked').node().value;
+  let searching = d3.select('input[name="result"]:checked').node().value;
 
-  currentTableRows.shift();
-
-  currentTableRows.sort((a, b) => {
-    let colA = a.children[targetField].innerText;
-    let colB = b.children[targetField].innerText;
+  const rows = d3.sort(d3.selectAll("table#dataTable > tbody > tr"), (a, b) => {
+    let colA = d3.select(a).node().children[targetField].innerText;
+    let colB = d3.select(b).node().children[targetField].innerText;
 
     colA = NUMERIC_COLS.includes(targetField)
       ? +colA
@@ -34,7 +30,8 @@ const getValues = () => {
 
   let values = [];
   let currentX = null;
-  currentTableRows.forEach((row) => {
+
+  rows.forEach((row) => {
     if (currentX != row.children[targetField].innerText) {
       currentX = row.children[targetField].innerText;
 
@@ -127,9 +124,9 @@ const buildGraph = (values) => {
     .style("stroke", "red");
 };
 
-graphForm
-  .querySelector("input[type='submit']")
-  .addEventListener("click", (e) => {
+d3
+  .select("input[type='submit']")
+  .on("click", (e) => {
     e.preventDefault();
     buildGraph(getValues());
   });

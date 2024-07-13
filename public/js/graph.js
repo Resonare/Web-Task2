@@ -1,4 +1,4 @@
-const graphForm = document.querySelector("#graphForm");
+const graphForm = d3.select("#graphForm");
 const svg = d3.select("#graphSvg");
 
 const WIDTH = 1000;

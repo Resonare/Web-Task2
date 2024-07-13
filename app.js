@@ -93,17 +93,22 @@ const moveY = (y, duration, scale = false) => {
   });
 };
 
+const point = svg
+  .append("circle")
+  .style("fill", "red")
+  .attr("r", 10)
+  .attr("cx", 0)
+  .attr("cy", 0);
+
 const startAnimation = async () => {
   const duration = +document.getElementById("duration").value;
   const scaleEffect = document.getElementById("scaleEffect").checked;
 
-  moveToStart();
+  // moveToStart();
 
-  await moveX(20, duration / 5);
-  await moveY(250, duration / 5, scaleEffect);
-  await moveX(480, duration / 5);
-  await moveY(480, duration / 5, scaleEffect);
-  await moveX(20, duration / 5);
+  let path = createPath();
+
+  move(point, path, scaleEffect ? 1 : 0, duration);
 };
 
 const clearSvg = () => {
@@ -113,15 +118,42 @@ const clearSvg = () => {
 
 createScene();
 
-const point = svg
-  .append("circle")
-  .attr("cx", 480)
-  .attr("cy", 20)
-  .attr("r", 10)
-  .attr("fill", "red");
-
 document
   .getElementById("startAnimation")
   .addEventListener("click", startAnimation);
 
 document.getElementById("clearSvg").addEventListener("click", clearSvg);
+
+const createPath = () => {
+  const dataPoints = [{ x: 480, y: 20 }, { x: 20, y: 20 }, { x: 20, y: 250 }, { x: 480, y: 250 }, { x: 480, y: 480 }, { x: 20, y: 480 }];
+  let line = d3
+    .line()
+    .x((d) => d.x)
+    .y((d) => d.y);
+
+  const path = svg
+    .append("path")
+    .attr("d", line(dataPoints))
+    .attr("none", "black")
+    .attr("fill", "none");
+
+  return path;
+}
+
+const move = (svg, path, scale, time) => {
+  svg
+    .transition()
+    .ease(d3.easeLinear)
+    .duration(time / 5)
+    .attrTween("transform", tran(path.node(), scale));
+}
+
+const tran = (path, scale) => {
+  const length = path.getTotalLength();
+  return () => {
+    return (t) => {
+      const { x, y } = path.getPointAtLength(t * length);
+      return `translate(${x},${y}) scale(${scale * t + 1})`;
+    };
+  };
+}
